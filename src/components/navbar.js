@@ -1,65 +1,68 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import {
-  MDBContainer, MDBNavbar,  MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon
-} from "mdbreact";
-import { Link } from 'gatsby';
-import CustomNavLink from './customLink';
-import { ReactComponent as Logo } from "../images/light-bulb.svg";
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarNav,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBIcon,
+  MDBBox,
+} from 'mdbreact'
+import { Link } from 'gatsby'
+import CustomNavLink from './customLink'
+import Logo from '../images/rolly-rolly-logo.png'
 
-class NavbarPage extends Component {
+import '../styles/styles.css'
+
+class NavbarComponent extends Component {
   state = {
-    isOpen: false
-  };
+    isOpen: false,
+  }
 
   toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+    this.setState({ isOpen: !this.state.isOpen })
   }
 
   render() {
     return (
-      <MDBNavbar color="indigo" dark expand="md">
-        <MDBContainer>
-          <Logo  />
+      <MDBNavbar color="light-blue lighten-4" light expand="md">
+        <MDBContainer className="container-nav">
+          {/* <Logo  /> */}
           <Link to="/" className="navbar-brand">
-            <strong className="ml-3 white-text">Creative Agency</strong></Link>
-          <MDBNavbarToggler name="navbar-toggler" onClick={this.toggleCollapse} />
+            <MDBBox tag="img" className="logo" src={Logo}></MDBBox>
+          </Link>
+          <MDBNavbarToggler
+            name="navbar-toggler"
+            onClick={this.toggleCollapse}
+          />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-            <MDBNavbarNav left>
-                <CustomNavLink to="#!">Home</CustomNavLink>
-                <CustomNavLink to="#!">About</CustomNavLink>
-                <CustomNavLink to="#!">Projects</CustomNavLink>
-                <MDBNavItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline">About</div>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu right>
-                    <MDBDropdownItem href="#!">Contact</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Articles</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Testimonials</MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
-              </MDBNavItem>
+            <MDBNavbarNav right>
+              <CustomNavLink className="font-900" to="/">
+                Αρχική
+              </CustomNavLink>
+              <CustomNavLink to="/products/">Προϊόντα</CustomNavLink>
+              <CustomNavLink to="/shops">Hot Zones</CustomNavLink>
+              <CustomNavLink to="/about">About us</CustomNavLink>
+              <CustomNavLink to="/franchise">Franchise</CustomNavLink>
             </MDBNavbarNav>
             <MDBNavbarNav right>
               <div className="d-flex align-items-center">
-                <CustomNavLink to="#!">
+                <CustomNavLink target to="https://www.facebook.com/rollyrolly.gr/">
                   <MDBIcon fab icon="facebook" className="ml-1" />
                 </CustomNavLink>
-                <CustomNavLink to="#!">
-                  <MDBIcon fab icon="twitter" className="ml-1" />
+                <CustomNavLink to="https://www.instagram.com/rollyrolly.gr/?hl=el">
+                  <MDBIcon fab icon="instagram" className="ml-1" />
                 </CustomNavLink>
-                <CustomNavLink to="#!">
-                  <MDBIcon fab icon="linkedin" className="ml-1" />
+                <CustomNavLink to="https://www.youtube.com/channel/UC6WuyZL5E8bSk6K8CIWtQGw">
+                  <MDBIcon fab icon="youtube" className="ml-1" />
                 </CustomNavLink>
               </div>
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBContainer>
       </MDBNavbar>
-    );
+    )
   }
 }
 
-export default NavbarPage;
+export default NavbarComponent

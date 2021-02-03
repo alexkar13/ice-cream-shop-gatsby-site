@@ -3,11 +3,6 @@
   background-image: linear-gradient(90deg, #3c0472, #5D00B7);
 }
 
-.page-footer {
-  margin: 0;
-  background-image: linear-gradient(-90deg, #3c0472, #5D00B7);
-}
-
 .carousel {
     position: absolute;
     top: 0;

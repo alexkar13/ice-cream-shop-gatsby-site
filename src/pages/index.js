@@ -1,37 +1,51 @@
-import React, { Component } from 'react';
-import Layout from '../components/layout';
-import Intro from '../components/mask';
-import SEO from '../components/seo';
-import Carousel from '../components/carousel';
-import AboutSection from '../components/aboutSection'
-import Card from '../components/card'
-import { MDBRow } from 'mdbreact'
-
+import React, { Component } from 'react'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Video from '../components/landing/landing-video'
+import LandingImageAndText from '../components/landing/landing-image-and-text'
 class App extends Component {
+  state = {
+    matches:
+      typeof window !== 'undefined'
+        ? window.matchMedia('(max-width: 768px)').matches
+        : undefined,
+  }
+
+  componentDidMount() {
+    const handler = e => this.setState({ matches: e.matches })
+
+    console.log('In  mount window is ', window)
+
+    // Wrap the require in check for window
+    if (typeof window !== `undefined`) {
+      window
+        .matchMedia('(max-width: 768px)')
+        .addEventListener('change', handler)
+    }
+  }
+
   render() {
     return (
       <>
         <Layout>
-          <SEO title="Home" keywords={[`gatsby`, `MDBReact`, `react`, `Material Design For Bootstrap`]} />
-        <Carousel />
-        <Intro />
-        <main>
-          <AboutSection />
-          <section id="cardSection">
-            <h2 className="h1-responsive text-center font-weight-bold mb-5">
-              Our bestsellers
-            </h2>
-            <MDBRow className="m-0" center>
-              <Card />
-              <Card />
-              <Card />
-            </MDBRow>
-          </section>
-        </main>
+          <SEO
+            title="Home"
+            keywords={[
+              `Fried ice cream `,
+              `Vegan ice cream`,
+              `Rolled ice cream`,
+              `Παγωτο`,
+              `Franchise`,
+              `Roll`,
+              `Rolly ice cream`,
+            ]}
+          />
+          <Video isMobile={this.state.matches} />
+          <LandingImageAndText isMobile={this.state.matches} />
         </Layout>
       </>
-    );
+    )
   }
 }
 
-export default App;
+export default App

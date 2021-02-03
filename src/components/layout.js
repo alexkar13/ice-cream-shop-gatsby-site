@@ -1,16 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 import Navbar from './navbar'
 import Footer from './footer'
-import "./layout.css"
+import { MDBBox } from 'mdbreact'
+import './layout.css'
 
 const Layout = ({ children }) => (
-     <>
-        <Navbar />
-          {children}
-        <Footer />
-      </>
+  <>
+    <MDBBox display="flex" className="layout-wrapper">
+      <Navbar />
+      <MDBBox className="main-content">{children}</MDBBox>
+      <Footer />
+    </MDBBox>
+  </>
 )
 
 Layout.propTypes = {

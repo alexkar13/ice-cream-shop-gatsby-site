@@ -47,7 +47,7 @@ class customLink extends Component {
                 role="link"
                 onClick={() => navigate(to)}
             >
-                <span className="nav-link">
+                <span className="nav-link custom-nav-link">
                   {children}
                 </span>
                 {!disabled && <MDBWaves cursorPos={cursorPos} />}
