@@ -5,11 +5,11 @@
 
 ## Pages
 
-- Home page (landing video + text with images)
-- Products page (ice cream menu)
-- Locations page
+- Home(landing video + text with images)
+- Products (ice cream menu)
+- Locations
 - About
-- Frachise
+- Franchise
 
 ## Usage
 
