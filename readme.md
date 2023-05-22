@@ -1,5 +1,7 @@
 # Ice cream shop static website
 
+[demo](https://rollyrolly.netlify.app)
+
 - Built with Gatsby.js
 - MDX components
 
